@@ -25,5 +25,8 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-connect": "~0.6.0",
     "grunt-contrib-watch": "~0.5.3"
+  },
+  "dependencies": {
+    "jquery": "~2.1.0-beta3"
   }
 }

@@ -82,7 +82,7 @@ module.exports = function (grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('clean', ['jsbeautifier:modify', 'jshint', 'notify:clean']);
+  grunt.registerTask('clean', ['jsbeautifier:modify', 'jshint']);
   grunt.registerTask('verify', ['jsbeautifier:verify', 'jshint']);
 
   grunt.registerTask('default', ['verify', 'browserify', 'copy']);
