@@ -1,0 +1,18 @@
+{
+  "name": "web-boilerplate",
+  "version": "0.0.1",
+  "description": "Base setup for starting a new web project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaddockh/web-boilerplate.git"
+  },
+  "author": "T. Shaddock Heath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shaddockh/web-boilerplate/issues"
+  }
+}
