@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
 
-  var scriptdirs = ['client/*.js', 'client/scripts/**/*.js'];
+  var scriptdirs = ['client/*.js', 'client/scripts/**/*.js', 'test/**/*.js'];
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -50,12 +50,6 @@ module.exports = function (grunt) {
         cwd: 'client/',
         src: ['**/*.html', '**/*.css'],
         dest: 'dist/'
-      },
-      bootstrap: {
-        expand: true,
-        cwd: 'bower_components/bootstrap/dist/',
-        src: ['css/bootstrap.css', 'fonts/*.*'],
-        dest: 'dist/'
       }
     },
     connect: {
@@ -77,6 +71,14 @@ module.exports = function (grunt) {
         files: ['client/**/*.html', 'client/**/*.css', 'assets/**/*', '*.css', '*.js', 'images/**/*', 'img/**/*'],
         tasks: ['copy']
       }
+    },
+
+    mochaTest: {
+      options: {
+        reporter: 'spec',
+        require: ['should']
+      },
+      src: ['test/**/*.js']
     }
   });
 
@@ -85,7 +87,9 @@ module.exports = function (grunt) {
   grunt.registerTask('clean', ['jsbeautifier:modify', 'jshint']);
   grunt.registerTask('verify', ['jsbeautifier:verify', 'jshint']);
 
-  grunt.registerTask('default', ['verify', 'browserify', 'copy']);
+  grunt.registerTask('test', ['verify', 'mochaTest']);
+
+  grunt.registerTask('default', ['test', 'browserify:all', 'copy']);
 
   grunt.registerTask('server', ['default', 'connect', 'watch']);
 };
